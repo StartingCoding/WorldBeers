@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		AB3000EB26331EC2009B5587 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3000EA26331EC2009B5587 /* AppDelegate.swift */; };
 		AB3000ED26331EC2009B5587 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3000EC26331EC2009B5587 /* SceneDelegate.swift */; };
-		AB3000EF26331EC2009B5587 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3000EE26331EC2009B5587 /* ViewController.swift */; };
+		AB3000EF26331EC2009B5587 /* BeersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3000EE26331EC2009B5587 /* BeersTableViewController.swift */; };
 		AB3000F226331EC2009B5587 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB3000F026331EC2009B5587 /* Main.storyboard */; };
 		AB3000F426331ECA009B5587 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB3000F326331ECA009B5587 /* Assets.xcassets */; };
 		AB3000F726331ECA009B5587 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB3000F526331ECA009B5587 /* LaunchScreen.storyboard */; };
@@ -20,7 +20,7 @@
 		AB3000E726331EC2009B5587 /* WorldBeers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldBeers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3000EA26331EC2009B5587 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB3000EC26331EC2009B5587 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AB3000EE26331EC2009B5587 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AB3000EE26331EC2009B5587 /* BeersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersTableViewController.swift; sourceTree = "<group>"; };
 		AB3000F126331EC2009B5587 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB3000F326331ECA009B5587 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB3000F626331ECA009B5587 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 			children = (
 				AB3000EA26331EC2009B5587 /* AppDelegate.swift */,
 				AB3000EC26331EC2009B5587 /* SceneDelegate.swift */,
-				AB3000EE26331EC2009B5587 /* ViewController.swift */,
+				AB3000EE26331EC2009B5587 /* BeersTableViewController.swift */,
 				AB9881F526346F7400BFADC5 /* Beer.swift */,
 				AB3000F026331EC2009B5587 /* Main.storyboard */,
 				AB3000F326331ECA009B5587 /* Assets.xcassets */,
@@ -140,7 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB3000EF26331EC2009B5587 /* ViewController.swift in Sources */,
+				AB3000EF26331EC2009B5587 /* BeersTableViewController.swift in Sources */,
 				AB3000EB26331EC2009B5587 /* AppDelegate.swift in Sources */,
 				AB3000ED26331EC2009B5587 /* SceneDelegate.swift in Sources */,
 				AB9881F626346F7400BFADC5 /* Beer.swift in Sources */,
@@ -220,7 +220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -275,7 +275,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -301,7 +301,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.loris.WorldBeers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -321,7 +321,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.loris.WorldBeers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

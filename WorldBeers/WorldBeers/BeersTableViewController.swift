@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  BeersTableViewController.swift
 //  WorldBeers
 //
 //  Created by Loris on 23/04/21.
@@ -7,10 +7,14 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class BeersTableViewController: UITableViewController, UISearchBarDelegate {
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     private var beers = [Beer]()
     private var loading = true
+    
+    var filteredBeers = [Beer]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +22,12 @@ class ViewController: UITableViewController {
         
         title = "WorldBeers"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        definesPresentationContext = true
         
         getBeers()
     }
@@ -32,7 +42,7 @@ class ViewController: UITableViewController {
         if loading {
             return 1
         } else {
-            return beers.count
+            return filteredBeers.count
         }
     }
     
@@ -42,7 +52,7 @@ class ViewController: UITableViewController {
         if loading {
             cell.textLabel?.text = "Loading..."
         } else {
-            let beer = beers[indexPath.row]
+            let beer = filteredBeers[indexPath.row]
             cell.textLabel?.text = beer.name
             cell.detailTextLabel?.text = beer.description
         }
@@ -64,6 +74,7 @@ class ViewController: UITableViewController {
                 }
                 
                 self?.beers = beersDecoded
+                self?.filteredBeers = beersDecoded
             }
             
             self?.loading = false
@@ -75,3 +86,16 @@ class ViewController: UITableViewController {
     }
 }
 
+extension BeersTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if searchController.searchBar.text!.isEmpty {
+            filteredBeers = beers
+        } else {
+            filteredBeers = beers.filter({ (beer: Beer) -> Bool in
+                return beer.name.lowercased().contains(searchController.searchBar.text!.lowercased())
+            })
+        }
+        
+        tableView.reloadData()
+    }
+}
