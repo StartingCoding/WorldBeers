@@ -60,6 +60,18 @@ class BeersTableViewController: UITableViewController, UISearchBarDelegate {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard
+            segue.identifier == "ShowDetailSegue",
+            let indexPath = tableView.indexPathForSelectedRow,
+            let detailViewController = segue.destination as? DetailViewController
+            else {
+            return
+        }
+        
+        detailViewController.beer = filteredBeers[indexPath.row]
+    }
+    
     // MARK: - Networking
     
     private func getBeers() {
