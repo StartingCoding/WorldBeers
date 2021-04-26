@@ -85,7 +85,10 @@ class BeersTableViewController: UITableViewController {
         
         URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
             if let data = data {
-                guard let beersDecoded = try? JSONDecoder().decode([Beer].self, from: data) else {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                
+                guard let beersDecoded = try? decoder.decode([Beer].self, from: data) else {
                     fatalError("Error decoding beers")
                 }
                 

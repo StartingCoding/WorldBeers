@@ -64,13 +64,21 @@
 				AB3000EC26331EC2009B5587 /* SceneDelegate.swift */,
 				AB3000EE26331EC2009B5587 /* BeersTableViewController.swift */,
 				AB873A4F2635CCB200DF7F14 /* DetailViewController.swift */,
-				AB9881F526346F7400BFADC5 /* Beer.swift */,
+				AB34DCF42636BD2400738AEE /* Model */,
 				AB3000F026331EC2009B5587 /* Main.storyboard */,
 				AB3000F326331ECA009B5587 /* Assets.xcassets */,
 				AB3000F526331ECA009B5587 /* LaunchScreen.storyboard */,
 				AB3000F826331ECA009B5587 /* Info.plist */,
 			);
 			path = WorldBeers;
+			sourceTree = "<group>";
+		};
+		AB34DCF42636BD2400738AEE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AB9881F526346F7400BFADC5 /* Beer.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -9,7 +9,11 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var tagline: UILabel!
+    @IBOutlet weak var beerImageView: UIImageView!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var abvLabel: UILabel!
+    @IBOutlet weak var brewersTipsLabel: UILabel!
     
     var beer: Beer? {
         didSet {
@@ -25,21 +29,32 @@ class DetailViewController: UIViewController {
     
     func configureView() {
         if let beer = beer,
-           let nameLabel = nameLabel {
-            nameLabel.text = beer.name
+           let tagline = tagline,
+           let description = descriptionTextView,
+           let abv = abvLabel,
+           let brewerTips = brewersTipsLabel {
             title = beer.name
+            tagline.text = beer.tagline
+            downloadBeerImage()
+            description.text = beer.description
+            abv.text = "ABV: \(beer.abv)"
+            brewerTips.text = beer.brewersTips
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: Networking
+    func downloadBeerImage() {
+        guard let url = beer?.imageUrl else { return }
+        
+        URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
+            if let data = data {
+                DispatchQueue.main.async {
+                    self?.beerImageView.image = UIImage(data: data)
+                }
+            } else {
+                fatalError("Error downloading data image - \(error!.localizedDescription)")
+            }
+        }.resume()
     }
-    */
 
 }

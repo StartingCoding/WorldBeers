@@ -66,7 +66,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzH-bU-iq5">
-                                <rect key="frame" x="166.5" y="104" width="42" height="21"/>
+                                <rect key="frame" x="167" y="64" width="41.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8N1-ab-SYc">
+                                <rect key="frame" x="87.5" y="125" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8N1-ab-SYc" secondAttribute="height" multiplier="1:1" id="myw-Ed-2g0"/>
+                                    <constraint firstAttribute="height" constant="200" id="ygm-lA-TKE"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gdU-N4-9P3">
+                                <rect key="frame" x="12" y="365" width="351" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wt3-ZB-gn1">
+                                <rect key="frame" x="12" y="605" width="351" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojN-Uc-PrD">
+                                <rect key="frame" x="12" y="646" width="351" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -75,13 +102,28 @@
                         <viewLayoutGuide key="safeArea" id="qjy-g4-c4r"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ZzH-bU-iq5" firstAttribute="centerX" secondItem="vHH-Oi-Cpp" secondAttribute="centerX" id="C4m-W4-Auu"/>
-                            <constraint firstItem="ZzH-bU-iq5" firstAttribute="top" secondItem="qjy-g4-c4r" secondAttribute="top" constant="60" id="yT3-Ax-v2j"/>
+                            <constraint firstItem="gdU-N4-9P3" firstAttribute="leading" secondItem="qjy-g4-c4r" secondAttribute="leading" constant="12" id="8CX-QT-Ehc"/>
+                            <constraint firstItem="gdU-N4-9P3" firstAttribute="top" secondItem="8N1-ab-SYc" secondAttribute="bottom" constant="40" id="Bnr-Ia-enk"/>
+                            <constraint firstItem="ojN-Uc-PrD" firstAttribute="leading" secondItem="qjy-g4-c4r" secondAttribute="leading" constant="12" id="D2n-Ui-L2q"/>
+                            <constraint firstItem="ZzH-bU-iq5" firstAttribute="top" secondItem="qjy-g4-c4r" secondAttribute="top" constant="20" id="RDJ-H7-7XQ"/>
+                            <constraint firstItem="ojN-Uc-PrD" firstAttribute="top" secondItem="Wt3-ZB-gn1" secondAttribute="bottom" constant="20" id="RT4-WV-2PB"/>
+                            <constraint firstItem="Wt3-ZB-gn1" firstAttribute="leading" secondItem="qjy-g4-c4r" secondAttribute="leading" constant="12" id="cxI-6m-TDZ"/>
+                            <constraint firstItem="ZzH-bU-iq5" firstAttribute="centerX" secondItem="vHH-Oi-Cpp" secondAttribute="centerX" id="g5k-Zr-o9p"/>
+                            <constraint firstItem="qjy-g4-c4r" firstAttribute="trailing" secondItem="Wt3-ZB-gn1" secondAttribute="trailing" constant="12" id="gfr-Md-ZvE"/>
+                            <constraint firstItem="qjy-g4-c4r" firstAttribute="trailing" secondItem="ojN-Uc-PrD" secondAttribute="trailing" constant="12" id="hGQ-jp-uq8"/>
+                            <constraint firstItem="Wt3-ZB-gn1" firstAttribute="top" secondItem="gdU-N4-9P3" secondAttribute="bottom" constant="40" id="k5J-9C-JWw"/>
+                            <constraint firstItem="8N1-ab-SYc" firstAttribute="top" secondItem="ZzH-bU-iq5" secondAttribute="bottom" constant="40" id="k71-2J-3bw"/>
+                            <constraint firstItem="qjy-g4-c4r" firstAttribute="trailing" secondItem="gdU-N4-9P3" secondAttribute="trailing" constant="12" id="sTG-IA-P8E"/>
+                            <constraint firstItem="8N1-ab-SYc" firstAttribute="centerX" secondItem="vHH-Oi-Cpp" secondAttribute="centerX" id="zB4-oP-6aw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eV1-bg-kpb"/>
                     <connections>
-                        <outlet property="nameLabel" destination="ZzH-bU-iq5" id="p8f-tC-uzI"/>
+                        <outlet property="abvLabel" destination="Wt3-ZB-gn1" id="dxS-R5-7Pr"/>
+                        <outlet property="beerImageView" destination="8N1-ab-SYc" id="pfJ-l2-YbF"/>
+                        <outlet property="brewersTipsLabel" destination="ojN-Uc-PrD" id="GoH-U7-W8G"/>
+                        <outlet property="descriptionTextView" destination="gdU-N4-9P3" id="bty-Hf-mLh"/>
+                        <outlet property="tagline" destination="ZzH-bU-iq5" id="dxr-Ye-kcn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7C-N0-GnT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -106,6 +148,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
