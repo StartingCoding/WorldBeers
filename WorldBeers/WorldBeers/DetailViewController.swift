@@ -38,7 +38,7 @@ class DetailViewController: UIViewController {
             downloadBeerImage()
             description.text = beer.description
             abv.text = "ABV: \(beer.abv)"
-            brewerTips.text = beer.brewersTips
+            brewerTips.text = "Brewer Tip:\n\(beer.brewersTips)"
         }
     }
     
