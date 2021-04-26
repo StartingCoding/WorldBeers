@@ -51,14 +51,13 @@ class BeersTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reusableCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BeerCell") as! BeerCell
         
         if loading {
-            cell.textLabel?.text = "Loading..."
+            cell.setPlaceholder(with: "Loading...")
         } else {
             let beer = filteredBeers[indexPath.row]
-            cell.textLabel?.text = beer.name
-            cell.detailTextLabel?.text = beer.description
+            cell.setBeer(with: beer)
         }
         
         return cell
