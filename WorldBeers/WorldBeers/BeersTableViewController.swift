@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BeersTableViewController: UITableViewController, UISearchBarDelegate {
+class BeersTableViewController: UITableViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -18,18 +18,22 @@ class BeersTableViewController: UITableViewController, UISearchBarDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
+        configureTableView()
+        configureSearchController()
+        downloadBeers()
+    }
+    
+    func configureTableView() {
         title = "WorldBeers"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+    }
+    
+    func configureSearchController() {
         navigationItem.searchController = searchController
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         definesPresentationContext = true
-        
-        getBeers()
     }
 
     // MARK: - Table View data source
@@ -74,7 +78,7 @@ class BeersTableViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: - Networking
     
-    private func getBeers() {
+    private func downloadBeers() {
         guard let url = URL(string: "https://api.punkapi.com/v2/beers") else {
             fatalError("There was an error with with the URL")
         }
@@ -97,6 +101,8 @@ class BeersTableViewController: UITableViewController, UISearchBarDelegate {
         }.resume()
     }
 }
+
+extension BeersTableViewController: UISearchBarDelegate { }
 
 extension BeersTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
