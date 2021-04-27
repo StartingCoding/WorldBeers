@@ -14,6 +14,7 @@
 		AB3000F426331ECA009B5587 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB3000F326331ECA009B5587 /* Assets.xcassets */; };
 		AB3000F726331ECA009B5587 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB3000F526331ECA009B5587 /* LaunchScreen.storyboard */; };
 		AB34DCFD26371FB000738AEE /* BeerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB34DCFC26371FB000738AEE /* BeerCell.swift */; };
+		AB38DB2326380E5A002BBBE1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38DB2226380E5A002BBBE1 /* NetworkManager.swift */; };
 		AB873A502635CCB200DF7F14 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB873A4F2635CCB200DF7F14 /* DetailViewController.swift */; };
 		AB9881F626346F7400BFADC5 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9881F526346F7400BFADC5 /* Beer.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		AB3000F626331ECA009B5587 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB3000F826331ECA009B5587 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB34DCFC26371FB000738AEE /* BeerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCell.swift; sourceTree = "<group>"; };
+		AB38DB2226380E5A002BBBE1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		AB873A4F2635CCB200DF7F14 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AB9881F526346F7400BFADC5 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +69,7 @@
 				AB3000EE26331EC2009B5587 /* BeersTableViewController.swift */,
 				AB34DCFC26371FB000738AEE /* BeerCell.swift */,
 				AB873A4F2635CCB200DF7F14 /* DetailViewController.swift */,
+				AB38DB2526380E64002BBBE1 /* Manager */,
 				AB34DCF42636BD2400738AEE /* Model */,
 				AB3000F026331EC2009B5587 /* Main.storyboard */,
 				AB3000F326331ECA009B5587 /* Assets.xcassets */,
@@ -82,6 +85,14 @@
 				AB9881F526346F7400BFADC5 /* Beer.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AB38DB2526380E64002BBBE1 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				AB38DB2226380E5A002BBBE1 /* NetworkManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +168,7 @@
 				AB3000EF26331EC2009B5587 /* BeersTableViewController.swift in Sources */,
 				AB3000EB26331EC2009B5587 /* AppDelegate.swift in Sources */,
 				AB873A502635CCB200DF7F14 /* DetailViewController.swift in Sources */,
+				AB38DB2326380E5A002BBBE1 /* NetworkManager.swift in Sources */,
 				AB34DCFD26371FB000738AEE /* BeerCell.swift in Sources */,
 				AB3000ED26331EC2009B5587 /* SceneDelegate.swift in Sources */,
 				AB9881F626346F7400BFADC5 /* Beer.swift in Sources */,

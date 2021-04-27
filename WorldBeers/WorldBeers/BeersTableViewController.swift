@@ -18,9 +18,9 @@ class BeersTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        downloadBeers()
         configureTableView()
         configureSearchController()
-        downloadBeers()
     }
     
     func configureTableView() {
@@ -77,30 +77,16 @@ class BeersTableViewController: UITableViewController {
     
     // MARK: - Networking
     
-    private func downloadBeers() {
-        guard let url = URL(string: "https://api.punkapi.com/v2/beers") else {
-            fatalError("There was an error with with the URL")
-        }
-        
-        URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
-            if let data = data {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                
-                guard let beersDecoded = try? decoder.decode([Beer].self, from: data) else {
-                    fatalError("Error decoding beers")
-                }
-                
-                self?.beers = beersDecoded
-                self?.filteredBeers = beersDecoded
-            }
-            
+    func downloadBeers() {
+        NetworkManager.shared.fetchBeers { [weak self] result in
+            self?.beers = result
+            self?.filteredBeers = self?.beers ?? [Beer]()
             self?.loading = false
             
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
-        }.resume()
+        }
     }
 }
 

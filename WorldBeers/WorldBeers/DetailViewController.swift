@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
            let brewerTips = brewersTipsLabel {
             title = beer.name
             tagline.text = beer.tagline
-            downloadBeerImage()
+            downloadBeerThumbnail()
             description.text = beer.description
             abv.text = "ABV: \(beer.abv)"
             brewerTips.text = "Brewer Tip:\n\(beer.brewersTips)"
@@ -43,18 +43,16 @@ class DetailViewController: UIViewController {
     }
     
     //MARK: Networking
-    func downloadBeerImage() {
-        guard let url = beer?.imageUrl else { return }
+    func downloadBeerThumbnail() {
+        guard let url = beer?.imageUrl else {
+            fatalError("There was an error with with the URL")
+        }
         
-        URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
-            if let data = data {
-                DispatchQueue.main.async {
-                    self?.beerImageView.image = UIImage(data: data)
-                }
-            } else {
-                fatalError("Error downloading data image - \(error!.localizedDescription)")
+        NetworkManager.shared.fecthBeerThumbnail(from: url) { [weak self] result in
+            DispatchQueue.main.async {
+                self?.beerImageView.image = UIImage(data: result)
             }
-        }.resume()
+        }
     }
 
 }
