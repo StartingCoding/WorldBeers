@@ -26,6 +26,8 @@ class BeersTableViewController: UITableViewController {
     func configureTableView() {
         title = "WorldBeers"
         navigationController?.navigationBar.prefersLargeTitles = true
+        tableView.separatorColor = .clear
+        tableView.register(BeerCell.self, forCellReuseIdentifier: BeerCell.identifier)
     }
     
     func configureSearchController() {
@@ -51,7 +53,7 @@ class BeersTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BeerCell") as! BeerCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: BeerCell.identifier) as! BeerCell
         
         if loading {
             cell.setPlaceholder(with: "Loading...")
@@ -63,16 +65,11 @@ class BeersTableViewController: UITableViewController {
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard
-            segue.identifier == "ShowDetailSegue",
-            let indexPath = tableView.indexPathForSelectedRow,
-            let detailViewController = segue.destination as? DetailViewController
-            else {
-            return
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let detailVC = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            detailVC.beer = filteredBeers[indexPath.row]
+            navigationController?.pushViewController(detailVC, animated: true)
         }
-        
-        detailViewController.beer = filteredBeers[indexPath.row]
     }
     
     // MARK: - Networking
